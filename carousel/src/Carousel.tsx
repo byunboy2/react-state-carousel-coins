@@ -3,6 +3,17 @@ import "./Carousel.css";
 import Card from "./Card";
 
 
+interface PhotosInterface {
+  src: string;
+  caption: string;
+}
+
+interface PropsInterface {
+  photos: PhotosInterface[];
+  title: string;
+}
+
+
 /** Carousel: displays images and arrows to navigate through them
  *
  * Props:
@@ -14,7 +25,9 @@ import Card from "./Card";
  *
  * App --> Carousel --> Card
  */
- function Carousel({ photos, title }) {
+
+
+const Carousel:React.FC<PropsInterface>=({photos, title})=>{
   const [currCardIdx, setCurrCardIdx] = useState(0);
 
   const currCard = photos[currCardIdx];
