@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Carousel from "./Carousel";
-import TEST_IMAGES from "./_testCommon.js";
+import TEST_IMAGES from "./_testCommon";
 import React from "react";
 
 describe("Smoke tests", function () {
@@ -63,26 +63,24 @@ describe("Tests the UI functionality", function () {
   });
 });
 
-
-describe("Tests the ending condition of the picture list.", function(){
+describe("Tests the ending condition of the picture list.", function () {
   // create new line
-it("hides the left arrow on the first image and hides right arrow on last image", function () {
-  const { container } = render(
-    <Carousel photos={TEST_IMAGES} title="images for testing" />
-  );
-  const leftArrow = container.querySelector(".bi-arrow-left-circle")!;
-  const rightArrow = container.querySelector(".bi-arrow-right-circle")!;
-  // expect the left arrow to not show on the first image
-  expect(leftArrow).toHaveClass("hidden");
-  expect(rightArrow).not.toHaveClass("hidden");
+  it("hides the left arrow on the first image and hides right arrow on last image", function () {
+    const { container } = render(
+      <Carousel photos={TEST_IMAGES} title="images for testing" />
+    );
+    const leftArrow = container.querySelector(".bi-arrow-left-circle")!;
+    const rightArrow = container.querySelector(".bi-arrow-right-circle")!;
+    // expect the left arrow to not show on the first image
+    expect(leftArrow).toHaveClass("hidden");
+    expect(rightArrow).not.toHaveClass("hidden");
 
-  fireEvent.click(rightArrow);
-  expect(leftArrow).not.toHaveClass("hidden");
-  expect(rightArrow).not.toHaveClass("hidden");
+    fireEvent.click(rightArrow);
+    expect(leftArrow).not.toHaveClass("hidden");
+    expect(rightArrow).not.toHaveClass("hidden");
 
-  fireEvent.click(rightArrow);
-  expect(leftArrow).not.toHaveClass("hidden");
-  expect(rightArrow).toHaveClass("hidden");
+    fireEvent.click(rightArrow);
+    expect(leftArrow).not.toHaveClass("hidden");
+    expect(rightArrow).toHaveClass("hidden");
+  });
 });
-
-})
