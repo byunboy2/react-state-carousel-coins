@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Carousel.css";
 import Card from "./Card";
-
+import React from "react";
 
 interface PhotosInterface {
   src: string;
@@ -28,7 +28,7 @@ interface PropsInterface {
 
 
 const Carousel:React.FC<PropsInterface>=({photos, title})=>{
-  const [currCardIdx, setCurrCardIdx] = useState(0);
+  const [currCardIdx, setCurrCardIdx] = useState<number>(0);
 
   const currCard = photos[currCardIdx];
   const total = photos.length;

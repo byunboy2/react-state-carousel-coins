@@ -1,6 +1,13 @@
 import React from "react";
 import "./Card.css";
 
+interface PropsInterface {
+  caption: string;
+  src: string;
+  currNum: number;
+  totalNum: number;
+}
+
 /** Card: displays image.
  *
  * Props:

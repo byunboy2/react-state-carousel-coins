@@ -1,6 +1,6 @@
-import image1 from "./image1.jpg";
-import image2 from "./image2.jpg";
-import image3 from "./image3.jpg";
+const image1 = require("./image1.jpg");
+const image2 = require("./image2.jpg");
+const image3 = require("./image3.jpg");
 
 const photos = [
   {
